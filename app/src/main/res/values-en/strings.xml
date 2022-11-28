@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="safeApiCall_noResult">Result not found.</string>
+    <string name="safeApiCall_timeoutError">Request timeout.</string>
+    <string name="safeApiCall_checkYourConnection">Please check your internet connection.</string>
+    <string name="safeApiCall_unknownError">An unknown error occurred.</string>
+</resources>

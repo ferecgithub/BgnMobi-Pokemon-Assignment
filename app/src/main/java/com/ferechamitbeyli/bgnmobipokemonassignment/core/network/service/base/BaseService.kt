@@ -1,0 +1,3 @@
+package com.ferechamitbeyli.bgnmobipokemonassignment.core.network.service.base
+
+interface BaseService

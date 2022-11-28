@@ -1,0 +1,122 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    namespace "com.ferechamitbeyli.bgnmobipokemonassignment"
+    compileSdk AppConfig.compile_sk_version
+
+    defaultConfig {
+        applicationId AppConfig.application_id
+        compileSdkVersion AppConfig.compile_sdk_version
+        minSdk AppConfig.min_sdk
+        targetSdk AppConfig.target_sdk
+        versionCode AppConfig.version_code
+        versionName AppConfig.version_name
+        vectorDrawables.useSupportLibrary = true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            testCoverageEnabled = false
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            testCoverageEnabled = true
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+    compileOptions {
+        sourceCompatibility AppConfig.java_version
+        targetCompatibility AppConfig.java_version
+    }
+    kotlinOptions {
+        jvmTarget = AppConfig.jvm_target
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
+}
+
+hilt { enableAggregatingTask = true }
+kapt { correctErrorTypes true}
+
+dependencies {
+
+    // AndroidX Core
+    implementation AndroidX.appcompat
+    implementation AndroidX.constraint_layout
+    implementation AndroidX.legacy_support_v4
+    implementation AndroidX.core_ktx
+
+    // Google Material Library
+    implementation Google.material
+
+    // Lifecycle
+    implementation Lifecycle.lifecycle_viewmodel_ktx
+    implementation Lifecycle.lifecycle_viewmodel_saved_state
+    implementation Lifecycle.lifecycle_livedata_ktx
+    kapt Lifecycle.lifecycle_compiler_kapt
+
+    // Activity KTX & Fragment KTX
+    implementation ActivityFragmentKTX.activity_ktx
+    implementation ActivityFragmentKTX.fragment_ktx
+
+    // Jetpack Navigation
+    implementation Navigation.navigation_fragment_ktx
+    implementation Navigation.navigation_ui_ktx
+
+    // Coroutines
+    implementation Coroutines.kotlinx_coroutines_core
+    implementation Coroutines.kotlinx_coroutines_android
+
+    // Dagger Hilt
+    implementation DaggerHilt.hilt_android
+    kapt DaggerHilt.hilt_compiler_kapt
+
+    // Paging3
+    implementation Paging.paging_runtime
+
+    // Retrofit2 & Moshi
+    implementation Retrofit2.retrofit
+    implementation Retrofit2.moshi_kotlin
+    implementation Retrofit2.converter_moshi
+    implementation Retrofit2.retrofit2_coroutines_adapter
+    kapt Retrofit2.moshi_kotlin_codegen_kapt
+
+    // OkHttp
+    implementation OkHttp3.logging_interceptor
+
+    // Coil
+    implementation Coil.coil
+
+    // EasyPermissions
+    implementation EasyPermissions.easy_permissions
+
+    // KotlinX Metadata
+    kapt(Domain.kotlin_metadata_jvm_kapt)
+
+    // Test Suites
+    testImplementation TestSuites.google_truth_testImpl
+    testImplementation TestSuites.arch_core_testing_bothTests
+
+
+    androidTestImplementation TestSuites.arch_core_testing_bothTests
+    androidTestImplementation TestSuites.test_ext_junit_androidTestImpl
+    androidTestImplementation TestSuites.androidx_text_espresso_core_androidTextImpl
+
+    debugImplementation TestSuites.fragment_testing_debugImpl
+}

@@ -1,0 +1,327 @@
+ext {
+
+    // AppConfig
+    compile_sdk_version = 33
+    min_sdk = 21
+    target_sdk = 33
+    version_code = 1
+    version_name = '1.0'
+    java_version = JavaVersion.VERSION_11
+    jvm_target = '11'
+    application_id = "com.ferechamitbeyli.bgnmobipokemonassignment"
+    namespace = "com.ferechamitbeyli.bgnmobipokemonassignment"
+    test_instrumentation_runner = "androidx.test.runner.AndroidJUnitRunner"
+    consumerProguardFiles = "consumer-rules.pro"
+
+    AppConfig = [
+            compile_sdk_version        : compile_sdk_version,
+            min_sdk                    : min_sdk,
+            target_sdk                 : target_sdk,
+            version_code               : version_code,
+            version_name               : version_name,
+            java_version               : java_version,
+            jvm_target                 : jvm_target,
+            application_id             : application_id,
+            test_instrumentation_runner: test_instrumentation_runner,
+            consumer_proguard_files    : consumerProguardFiles
+
+    ]
+
+    // AppClasspath
+    build_gradle_version = '7.3.1'
+    navigation_safe_args_gradle_plugin_version = "2.5.0"
+    kotlin_gradle_plugin_version = '1.7.10'
+    hilt_android_gradle_plugin_version = '2.42'
+    google_services_version = '4.3.10'
+    firebase_crashlytics_gradle_version = '2.8.0'
+    secrets_gradle_plugin_version = '2.0.0'
+
+    AppClasspath = [
+            build_gradle                      : "com.android.tools.build:gradle:${build_gradle_version}",
+            kotlin_gradle_plugin              : "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_gradle_plugin_version}",
+            navigation_safe_args_gradle_plugin: "androidx.navigation:navigation-safe-args-gradle-plugin:${navigation_safe_args_gradle_plugin_version}",
+            hilt_android_gradle_plugin        : "com.google.dagger:hilt-android-gradle-plugin:${hilt_android_gradle_plugin_version}",
+            google_services                   : "com.google.gms:google-services:${google_services_version}",
+            firebase_crashlytics_gradle       : "com.google.firebase:firebase-crashlytics-gradle:${firebase_crashlytics_gradle_version}",
+            secrets_gradle_plugin             : "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:${secrets_gradle_plugin_version}"
+    ]
+
+    // AndroidX Core
+    appcompat_version = '1.5.1'
+    core_ktx_version = '1.9.0'
+    constraintlayout_version = '2.1.4'
+    legacy_support_v4_version = '1.0.0'
+    core_splashscreen_version = '1.0.0-beta02'
+
+    AndroidX = [
+            appcompat        : "androidx.appcompat:appcompat:${appcompat_version}",
+            constraint_layout: "androidx.constraintlayout:constraintlayout:${constraintlayout_version}",
+            legacy_support_v4: "androidx.legacy:legacy-support-v4:${legacy_support_v4_version}",
+            core_ktx         : "androidx.core:core-ktx:${core_ktx_version}",
+            core_splashscreen: "androidx.core:core-splashscreen:${core_splashscreen_version}"
+    ]
+
+    // Domain specific
+    kotlin_version = '1.7.0'
+    kotlin_metadata_jvm_version = '0.5.0'
+
+    Domain = [
+            kotlin_version          : "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}",
+            kotlin_metadata_jvm_kapt: "org.jetbrains.kotlinx:kotlinx-metadata-jvm:${kotlin_metadata_jvm_version}"
+    ]
+
+    // Google Libs
+    material_version = '1.7.0'
+    ml_kit_version = '17.0.2'
+
+    Google = [
+            material: "com.google.android.material:material:${material_version}",
+            ml_kit  : "com.google.mlkit:barcode-scanning:${ml_kit_version}"
+    ]
+
+    // CameraX
+    cameraX_version = '1.2.0-rc01'
+
+    CameraX = [
+            camera_core        : "androidx.camera:camera-core:${cameraX_version}",
+            camera_camera2     : "androidx.camera:camera-camera2:${cameraX_version}",
+            camera_lifecycle   : "androidx.camera:camera-lifecycle:${cameraX_version}",
+            camera_video       : "androidx.camera:camera-video:${cameraX_version}",
+            camera_view        : "androidx.camera:camera-view:${cameraX_version}",
+            camera_mlkit_vision: "androidx.camera:camera-mlkit-vision:${cameraX_version}",
+            camera_extensions  : "androidx.camera:camera-extensions:${cameraX_version}"
+    ]
+
+    // Paging
+    paging_version = '3.1.1'
+
+    Paging = [
+            paging_runtime : "androidx.paging:paging-runtime:${paging_version}",
+    ]
+
+    // Zxing
+    zxing_core_version = '3.3.3'
+
+    Zxing = [
+            zxing_core: "com.google.zxing:core:${zxing_core_version}"
+    ]
+
+    // Lifecycle
+    lifecycle_version = '2.5.1'
+
+    Lifecycle = [
+            lifecycle_viewmodel_ktx        : "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycle_version}",
+            lifecycle_viewmodel_saved_state: "androidx.lifecycle:lifecycle-viewmodel-savedstate:${lifecycle_version}",
+            lifecycle_service              : "androidx.lifecycle:lifecycle-service:${lifecycle_version}",
+            lifecycle_livedata_ktx         : "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycle_version}",
+            lifecycle_compiler_kapt        : "androidx.lifecycle:lifecycle-compiler:${lifecycle_version}"
+    ]
+
+    // Navigation
+    navigation = '2.5.3'
+
+    Navigation = [
+            navigation_fragment_ktx                     : "androidx.navigation:navigation-fragment-ktx:${navigation}",
+            navigation_ui_ktx                           : "androidx.navigation:navigation-ui-ktx:${navigation}",
+            navigation_testing_androidTestImplementation: "androidx.navigation:navigation-testing:${navigation}"
+    ]
+
+    // Activity & Fragment KTX
+    fragment_ktx_version = '1.5.4'
+    activity_ktx_version = '1.6.1'
+
+    ActivityFragmentKTX = [
+            activity_ktx: "androidx.activity:activity-ktx:${activity_ktx_version}",
+            fragment_ktx: "androidx.fragment:fragment-ktx:${fragment_ktx_version}"
+    ]
+
+    // Room
+    room_version = '2.4.2'
+
+    Room = [
+            room_runtime      : "androidx.room:room-runtime:${room_version}",
+            room_ktx          : "androidx.room:room-ktx:${room_version}",
+            room_compiler_kapt: "androidx.room:room-compiler:${room_version}"
+    ]
+
+    // DataStore
+    datastore_preferences_version = "1.0.0"
+    DataStore = [
+            datastore_preferences: "androidx.datastore:datastore-preferences:${datastore_preferences_version}"
+    ]
+
+    // Firebase
+    firebase_bom_version = '30.2.0'
+    firebase_auth_ktx_version = '21.0.6'
+    firebase_database_version = '20.0.5'
+    firebase_storage_version = '20.0.1'
+    firebase_crashlytics_version = '18.2.11'
+    firebase_analytics_version = '21.0.0'
+    firebase_messaging_version = '23.0.6'
+
+    Firebase = [
+            firebase_bom        : "com.google.firebase:firebase-bom:${firebase_bom_version}",
+            firebase_auth_ktx   : "com.google.firebase:firebase-auth-ktx:${firebase_auth_ktx_version}",
+            firebase_database   : "com.google.firebase:firebase-database-ktx:${firebase_database_version}",
+            firebase_storage    : "com.google.firebase:firebase-storage-ktx:${firebase_storage_version}",
+            firebase_crashlytics: "com.google.firebase:firebase-crashlytics-ktx:${firebase_crashlytics_version}",
+            firebase_analytics  : "com.google.firebase:firebase-analytics-ktx:${firebase_analytics_version}",
+            firebase_messaging  : "com.google.firebase:firebase-messaging-ktx:${firebase_messaging_version}"
+
+    ]
+
+    // Coroutines
+    kotlinx_coroutines_version = '1.6.4'
+
+    Coroutines = [
+            kotlinx_coroutines_core   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinx_coroutines_version}",
+            kotlinx_coroutines_android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${kotlinx_coroutines_version}",
+            kotlinx_coroutine_test    : "org.jetbrains.kotlinx:kotlinx-coroutines-test:${kotlinx_coroutines_version}"
+    ]
+
+    // Retrofit2
+    retrofit2_version = '2.9.0'
+    moshi_version = '1.14.0'
+    gson_version = '2.9.1'
+    retrofit2_coroutines_adapter_version = '0.9.2'
+
+    Retrofit2 = [
+            retrofit                    : "com.squareup.retrofit2:retrofit:${retrofit2_version}",
+            moshi_kotlin                : "com.squareup.moshi:moshi-kotlin:${moshi_version}",
+            gson                        : "com.google.code.gson:gson:${gson_version}",
+            converter_gson              : "com.squareup.retrofit2:converter-gson:${retrofit2_version}",
+            converter_moshi             : "com.squareup.retrofit2:converter-moshi:${retrofit2_version}",
+            retrofit2_coroutines_adapter: "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${retrofit2_coroutines_adapter_version}",
+            convert_scalars             : "com.squareup.retrofit2:converter-scalars:${retrofit2_version}",
+            moshi_kotlin_codegen_kapt   : "com.squareup.moshi:moshi-kotlin-codegen:${moshi_version}"
+    ]
+
+    // OkHttp3
+    okhttp3_logging_interceptor_version = '5.0.0-alpha.9'
+
+    OkHttp3 = [
+            logging_interceptor: "com.squareup.okhttp3:logging-interceptor:${okhttp3_logging_interceptor_version}"
+    ]
+
+    // PlayServices
+    play_services_location_version = '20.0.0'
+    play_services_maps_version = '18.0.2'
+
+    PlayServices = [
+            kotlinx_coroutines_play_services: "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${kotlinx_coroutines_version}",
+            play_services_location          : "com.google.android.gms:play-services-location:${play_services_location_version}",
+            play_services_maps              : "com.google.android.gms:play-services-maps:${play_services_maps_version}",
+    ]
+
+    // Google Maps SDK Utils
+    google_maps_utils_version = '2.3.0'
+    google_maps_utils_ktx_version = '3.4.0'
+
+    GoogleMapsUtils = [
+            google_maps_utils    : "com.google.maps.android:android-maps-utils:${google_maps_utils_version}",
+            google_maps_utils_ktx: "com.google.maps.android:maps-utils-ktx:${google_maps_utils_ktx_version}"
+    ]
+
+    // Dagger Hilt
+    dagger_hilt_version = '2.44'
+    hilt_lifecycle_viewmodel_version = "1.0.0-alpha03"
+    hilt_compiler_version = '2.44'
+
+    DaggerHilt = [
+            hilt_android      : "com.google.dagger:hilt-android:${dagger_hilt_version}",
+            //hilt_lifecycle_viewmodel: "androidx.hilt:hilt-lifecycle-viewmodel:${hilt_lifecycle_viewmodel_version}",
+            //hilt_android_compiler_kapt: "com.google.dagger:hilt-android-compiler:${dagger_hilt_version}",
+            hilt_compiler_kapt: "com.google.dagger:hilt-compiler:${hilt_compiler_version}"
+    ]
+
+
+    // JavaxInject
+    javax_inject_version = "1"
+
+    JavaxInject = [
+            javax_inject: "javax.inject:javax.inject:${javax_inject_version}"
+    ]
+
+
+    /*
+    // Glide
+    glide_version = "4.12.0"
+
+    Glide = [
+            glide: "com.github.bumptech.glide:glide:${glide_version}",
+            glide_compiler_kapt: "com.github.bumptech.glide:compiler:${glide_version}"
+    ]
+     */
+
+    // Coil
+    coil_version = '2.2.2'
+
+    Coil = [
+            coil: "io.coil-kt:coil:${coil_version}"
+    ]
+
+    // EasyPermissions
+    easypermissions_ktx_version = "1.0.0"
+
+    EasyPermissions = [
+            easy_permissions: "com.vmadalin:easypermissions-ktx:${easypermissions_ktx_version}"
+    ]
+
+    // CircularIndicator
+    circleindicator_version = "2.1.6"
+
+    CircularIndicator = [
+            circular_indicator: "me.relex:circleindicator:${circleindicator_version}"
+    ]
+
+    // Encrypted Shared Preferences
+    security_crypto_version = "1.0.0"
+
+    EncryptedSharedPref = [
+            security_crypto: "androidx.security:security-crypto:${security_crypto_version}"
+    ]
+
+    // SquareUp Logcat
+    squareup_logcat_version = "0.1"
+
+    SquareUpLogcat = [
+            squareup_logcat: "com.squareup.logcat:logcat:${squareup_logcat_version}"
+    ]
+
+
+    // LeakCanary
+    leakcanary_android = "2.7"
+
+    LeakCanary = [
+            leakcanary_android: "com.squareup.leakcanary:leakcanary-android:${leakcanary_android}"
+    ]
+
+    // MPAndroidChart
+    mPAndroidChart_version = "v3.1.0"
+
+    MPAndroidChart = [
+            mpAndroidChart: "com.github.PhilJay:MPAndroidChart:${mPAndroidChart_version}"
+    ]
+
+    // Chip Navigation
+    chipNavigation_version = "1.3.4"
+
+    ChipNavigation = [
+            chipNavigation: "com.ismaeldivita.chipnavigation:chip-navigation-bar:${chipNavigation_version}"
+    ]
+
+    // Test Suites
+    junit_version = '1.1.3'
+    google_truth_version = '1.1.3'
+    arch_core_testing_version = '2.1.0'
+    espresso_core_version = '3.4.0'
+    fragment_testing_version = '1.5.4'
+
+    TestSuites = [
+            google_truth_testImpl                      : "com.google.truth:truth:${google_truth_version}",
+            arch_core_testing_bothTests                : "androidx.arch.core:core-testing:${arch_core_testing_version}",
+            test_ext_junit_androidTestImpl             : "androidx.test.ext:junit:${junit_version}",
+            androidx_text_espresso_core_androidTextImpl: "androidx.test.espresso:espresso-core:${espresso_core_version}",
+            fragment_testing_debugImpl                 : "androidx.fragment:fragment-testing:${fragment_testing_version}",
+    ]
+}
