@@ -7,4 +7,6 @@
     <string name="overlayPermissionWarning">This permission is required.</string>
     <string name="overlayPermissionGrantedMessage">Now you can pick your favorite Pokemon!</string>
     <string name="give_me_overlay_permission">Give Me Overlay Permission!</string>
+    <string name="noInternetConnectionWarning">No internet connection.</string>
+    <string name="tryAgain">Try Again</string>
 </resources>
