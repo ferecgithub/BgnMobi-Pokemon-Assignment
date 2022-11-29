@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".features.list.presentation.fragment.PokemonListFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_pokemonList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Liste Sayfası" />
+        android:padding="4dp" />
 
 </FrameLayout>
