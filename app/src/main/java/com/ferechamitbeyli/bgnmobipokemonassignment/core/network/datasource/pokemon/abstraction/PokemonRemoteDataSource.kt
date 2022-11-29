@@ -2,6 +2,7 @@ package com.ferechamitbeyli.bgnmobipokemonassignment.core.network.datasource.pok
 
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.dto.pokemon_detail.PokemonDetailDto
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.dto.pokemon_list.PokemonListDto
+import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.util.NetworkConstants
 import retrofit2.Response
 
 /**
@@ -11,7 +12,10 @@ import retrofit2.Response
  * retrieval functions of the PokeAPI backend.
  */
 interface PokemonRemoteDataSource {
-    suspend fun getPokemonList(): Response<PokemonListDto>
+    suspend fun getPokemonList(
+        offset: Int = NetworkConstants.POKEMON_LIST_OFFSET,
+        limit: Int = NetworkConstants.POKEMON_LIST_LIMIT
+    ): Response<PokemonListDto>
     suspend fun getPokemonById(id: Int): Response<PokemonDetailDto>
     suspend fun getPokemonByName(name: String): Response<PokemonDetailDto>
 }

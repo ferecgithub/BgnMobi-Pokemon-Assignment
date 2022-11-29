@@ -6,7 +6,7 @@ import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.dto.pokemon_lis
 import javax.inject.Inject
 
 class PokemonListMapper @Inject constructor(
-    private val resultMapper: ResultMapper
+    private val pokemonListItemMapper: PokemonListItemMapper
 ) :
     RemoteModelMapper<PokemonListDto, PokemonList> {
     override fun mapFromModel(model: PokemonListDto): PokemonList {
@@ -14,7 +14,7 @@ class PokemonListMapper @Inject constructor(
             count = model.count,
             next = model.next,
             previous = model.previous,
-            results = resultMapper.mapModelList(model.results)
+            results = pokemonListItemMapper.mapModelList(model.results)
         )
     }
 
@@ -23,7 +23,7 @@ class PokemonListMapper @Inject constructor(
             count = type.count,
             next = type.next,
             previous = type.previous,
-            results = resultMapper.mapTypeList(type.results)
+            results = pokemonListItemMapper.mapTypeList(type.results)
         )
     }
 }
