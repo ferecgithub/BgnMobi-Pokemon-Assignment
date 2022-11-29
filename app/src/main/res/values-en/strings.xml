@@ -4,4 +4,5 @@
     <string name="safeApiCall_timeoutError">Request timeout.</string>
     <string name="safeApiCall_checkYourConnection">Please check your internet connection.</string>
     <string name="safeApiCall_unknownError">An unknown error occurred.</string>
+    <string name="overlayPermissionWarning">This permission is required.</string>
 </resources>
