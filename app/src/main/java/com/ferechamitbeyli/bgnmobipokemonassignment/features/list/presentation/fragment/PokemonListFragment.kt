@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import com.ferechamitbeyli.bgnmobipokemonassignment.R
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.FragmentOverlayPermissionBinding
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.FragmentPokemonListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PokemonListFragment : Fragment() {
     private var _binding: FragmentPokemonListBinding? = null
     private val binding get() = _binding!!
@@ -29,11 +31,6 @@ class PokemonListFragment : Fragment() {
     }
 
     private fun setOnClickListeners() {
-
-    }
-
-    override fun onResume() {
-        super.onResume()
 
     }
 

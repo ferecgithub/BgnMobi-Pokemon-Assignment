@@ -7,4 +7,5 @@
 
     <string name="overlayPermissionWarning">Uygulamayı kullanabilmeniz için bu izni vermeniz gerekiyor.</string>
     <string name="overlayPermissionGrantedMessage">Favori Pokemonunu seçmeye başlayabilirsin!</string>
+    <string name="give_me_overlay_permission">Uygulamamın üstte kalmasına izin ver!</string>
 </resources>

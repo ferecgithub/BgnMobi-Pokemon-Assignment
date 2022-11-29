@@ -6,4 +6,5 @@
     <string name="safeApiCall_unknownError">An unknown error occurred.</string>
     <string name="overlayPermissionWarning">This permission is required.</string>
     <string name="overlayPermissionGrantedMessage">Now you can pick your favorite Pokemon!</string>
+    <string name="give_me_overlay_permission">Give Me Overlay Permission!</string>
 </resources>
