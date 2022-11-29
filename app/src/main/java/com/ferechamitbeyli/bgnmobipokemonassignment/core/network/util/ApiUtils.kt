@@ -92,17 +92,3 @@ suspend fun <ResponseType, MappedResponseType> safeApiCall(
         }
     }
 }
-
-//fun ResponseBody.parseError(): ErrorResponse? {
-//    val moshi: Moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
-//    val type: ParameterizedType = Types.newParameterizedType(
-//        ErrorResponse::class.java,
-//        String::class.java
-//    )
-//    val adapter: JsonAdapter<ErrorResponse?> = moshi.adapter(type)
-//    return try {
-//        adapter.fromJson(string())
-//    } catch (exception: Exception) {
-//        null
-//    }
-//}

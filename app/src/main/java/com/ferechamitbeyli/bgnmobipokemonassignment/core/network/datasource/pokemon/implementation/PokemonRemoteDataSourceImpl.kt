@@ -1,5 +1,6 @@
 package com.ferechamitbeyli.bgnmobipokemonassignment.core.network.datasource.pokemon.implementation
 
+import android.util.Log
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.datasource.pokemon.abstraction.PokemonRemoteDataSource
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.dto.pokemon_detail.PokemonDetailDto
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.dto.pokemon_list.PokemonListDto
@@ -19,8 +20,9 @@ class PokemonRemoteDataSourceImpl @Inject constructor(
     override suspend fun getPokemonList(
         offset: Int,
         limit: Int
-    ): Response<PokemonListDto> =
-        pokemonService.getPokemonList()
+    ): Response<PokemonListDto> {
+        return pokemonService.getPokemonList()
+    }
 
     override suspend fun getPokemonById(id: Int): Response<PokemonDetailDto> =
         pokemonService.getPokemonById(id = id)

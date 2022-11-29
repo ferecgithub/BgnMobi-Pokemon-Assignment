@@ -38,7 +38,7 @@ object NetworkModule {
     ): Retrofit {
         return remoteFactory.createRetrofit(
             url = BASE_URL,
-            isDebug = BuildConfig.DEBUG
+            isDebug = true //BuildConfig.DEBUG
         )
 
     }

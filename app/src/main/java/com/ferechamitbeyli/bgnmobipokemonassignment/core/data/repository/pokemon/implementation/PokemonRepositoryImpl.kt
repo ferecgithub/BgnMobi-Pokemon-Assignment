@@ -33,7 +33,7 @@ class PokemonRepositoryImpl @Inject constructor(
         Pager(
             config = PagingConfig(
                 pageSize = POKEMON_LIST_LIMIT,
-                maxSize = POKEMON_LIST_LIMIT + (POKEMON_LIST_LIMIT + 2),
+                maxSize = POKEMON_LIST_LIMIT + (POKEMON_LIST_LIMIT * 2),
                 enablePlaceholders = false
             ),
             pagingSourceFactory = {
