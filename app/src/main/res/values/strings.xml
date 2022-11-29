@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name" translatable="false">BgnMobiPokemonAssignment</string>
     <string name="safeApiCall_noResult">Sonuç bulunamadı.</string>
-    <string name="safeApiCall_timeoutError" >İstek zaman aşımına uğradı.</string>
+    <string name="safeApiCall_timeoutError">İstek zaman aşımına uğradı.</string>
     <string name="safeApiCall_checkYourConnection">Lütfen internet bağlantınızı kontrol ediniz.</string>
     <string name="safeApiCall_unknownError">Bilinmeyen bir hata oluştu.</string>
     <string name="overlayPermissionWarning">Uygulamayı kullanabilmeniz için bu izni vermeniz gerekiyor.</string>
+    <string name="overlayPermissionGrantedMessage">Favori Pokemonunu seçmeye başlayabilirsin!</string>
+    <string name="give_me_overlay_permission">Uygulamamın üstte kalmasına izin ver!</string>
 </resources>
