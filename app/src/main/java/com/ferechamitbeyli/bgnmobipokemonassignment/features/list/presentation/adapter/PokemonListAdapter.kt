@@ -18,7 +18,7 @@ import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.LayoutPokemonLis
  */
 
 class PokemonListAdapter(
-    private val onItemClickListener: OnItemClickListener
+    private val onItemClickListener: OnItemClickListener<PokemonListItem>
 ) : PagingDataAdapter<PokemonListItem, RecyclerView.ViewHolder>(differ) {
 
     companion object {

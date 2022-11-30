@@ -1,5 +1,5 @@
 package com.ferechamitbeyli.bgnmobipokemonassignment.core.common.util
 
-interface OnItemClickListener {
-    fun <T>onItemClick(position: Int, model: T)
+interface OnItemClickListener<T> {
+    fun onItemClick(position: Int, model: T)
 }

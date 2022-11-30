@@ -22,6 +22,7 @@ import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.helper.UIHelpers
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.helper.UIHelpers.handleActionBarVisibility
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.util.OnItemClickListener
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.util.State
+import com.ferechamitbeyli.bgnmobipokemonassignment.core.data.model.pokemon_list.PokemonListItem
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.FragmentOverlayPermissionBinding
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.FragmentPokemonListBinding
 import com.ferechamitbeyli.bgnmobipokemonassignment.features.list.presentation.adapter.PokemonListAdapter
@@ -33,7 +34,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class PokemonListFragment : Fragment(), OnItemClickListener {
+class PokemonListFragment : Fragment(), OnItemClickListener<PokemonListItem> {
 
     private var _binding: FragmentPokemonListBinding? = null
     private val binding get() = _binding!!
@@ -107,8 +108,7 @@ class PokemonListFragment : Fragment(), OnItemClickListener {
         }
     }
 
-    override fun <T> onItemClick(position: Int, model: T) {
+    override fun onItemClick(position: Int, model: PokemonListItem) {
         TODO("Not yet implemented")
     }
-
 }
