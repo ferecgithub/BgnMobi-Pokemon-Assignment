@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/overlayPermissionFragment">
+    app:startDestination="@id/pokemonListFragment">
 
     <fragment
         android:id="@+id/overlayPermissionFragment"
@@ -24,6 +24,11 @@
         <action
             android:id="@+id/action_pokemonListFragment_to_pokemonDetailFragment"
             app:destination="@id/pokemonDetailFragment" />
+        <action
+            android:id="@+id/action_pokemonListFragment_to_overlayPermissionFragment"
+            app:destination="@id/overlayPermissionFragment"
+            app:popUpTo="@id/pokemonListFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/pokemonDetailFragment"

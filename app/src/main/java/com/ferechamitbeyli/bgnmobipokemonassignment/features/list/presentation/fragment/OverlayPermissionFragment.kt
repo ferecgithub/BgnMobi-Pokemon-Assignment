@@ -38,11 +38,6 @@ class OverlayPermissionFragment : Fragment() {
 
         checkIfHasOverlayPermission()
 
-//        handleActionBarVisibility(
-//            requireActivity() as AppCompatActivity,
-//            findNavController().currentDestination?.label.toString()
-//        )
-
         requireActivity().findViewById<Toolbar>(R.id.toolbar_main).isVisible = false
 
         setOnClickListeners()
@@ -55,14 +50,6 @@ class OverlayPermissionFragment : Fragment() {
             }
         }
     }
-
-    /*
-    private fun hideActionBar() {
-        Log.d("CURENT_DEST", findNavController().currentDestination?.label.toString())
-        //(requireActivity() as AppCompatActivity).supportActionBar?.hide()
-    }
-
-     */
 
     private val overlayPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {

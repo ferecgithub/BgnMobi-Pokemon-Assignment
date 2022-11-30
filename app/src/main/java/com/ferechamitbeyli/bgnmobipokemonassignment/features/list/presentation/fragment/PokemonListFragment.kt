@@ -1,6 +1,8 @@
 package com.ferechamitbeyli.bgnmobipokemonassignment.features.list.presentation.fragment
 
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,6 +44,9 @@ class PokemonListFragment : Fragment(), OnItemClickListener<PokemonListItem> {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentPokemonListBinding.inflate(inflater, container, false)
+
+        checkIfHasOverlayPermission()
+
         return binding.root
     }
 
@@ -66,11 +71,6 @@ class PokemonListFragment : Fragment(), OnItemClickListener<PokemonListItem> {
         )
 
         requireActivity().findViewById<Toolbar>(R.id.toolbar_main).isVisible = true
-
-//        handleActionBarVisibility(
-//            requireActivity() as AppCompatActivity,
-//            findNavController().currentDestination?.label.toString()
-//        )
 
         binding.recyclerViewPokemonList.apply {
             adapter = pokemonListAdapter.withLoadStateHeaderAndFooter(
@@ -120,11 +120,24 @@ class PokemonListFragment : Fragment(), OnItemClickListener<PokemonListItem> {
 
     }
 
+    private fun checkIfHasOverlayPermission() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return
+        if (!Settings.canDrawOverlays(requireContext())) {
+            navigateToOverlayPermissionFragment()
+        }
+    }
+
     private fun navigateToPokemonDetailFragment(name: String) {
         if (findNavController().currentDestination?.id == R.id.pokemonListFragment) {
             val action = PokemonListFragmentDirections
                 .actionPokemonListFragmentToPokemonDetailFragment(name = name)
             findNavController().navigate(action)
+        }
+    }
+
+    private fun navigateToOverlayPermissionFragment() {
+        if (findNavController().currentDestination?.id == R.id.pokemonListFragment) {
+            findNavController().navigate(R.id.action_pokemonListFragment_to_overlayPermissionFragment)
         }
     }
 }

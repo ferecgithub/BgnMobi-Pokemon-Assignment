@@ -9,12 +9,11 @@ import com.ferechamitbeyli.bgnmobipokemonassignment.R
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
-class FirebasePushNotificationService @Inject constructor(
-    private val notificationManager: NotificationManager
-) : FirebaseMessagingService() {
+class FirebasePushNotificationService : FirebaseMessagingService() {
+
+    private lateinit var notificationManager: NotificationManager
 
     companion object {
         const val PUSH_NOTIFICATION_CHANNEL_ID = "pokemon_push_channel_id"
