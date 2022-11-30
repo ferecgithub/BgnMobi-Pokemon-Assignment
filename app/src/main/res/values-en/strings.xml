@@ -17,4 +17,6 @@
     <string name="pokemon_weight">Pokemon Weight: %1$s kg</string>
     <string name="showInOverlay">Show %1$s In Overlay</string>
     <string name="contentDescription_pokemon_image">Pokemon Image</string>
+    <string name="close_window">Close Window</string>
+    <string name="warningIcon">Warning Icon</string>
 </resources>

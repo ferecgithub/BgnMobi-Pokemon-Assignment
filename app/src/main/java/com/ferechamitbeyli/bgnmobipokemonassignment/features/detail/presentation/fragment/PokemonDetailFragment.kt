@@ -1,5 +1,6 @@
 package com.ferechamitbeyli.bgnmobipokemonassignment.features.detail.presentation.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,11 +17,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.ferechamitbeyli.bgnmobipokemonassignment.R
-import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.helper.UIHelpers
-import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.helper.UIHelpers.handleActionBarVisibility
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.helper.UIHelpers.setCurrentLabelOntoActionBar
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.util.State
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.data.model.pokemon_detail.PokemonDetail
+import com.ferechamitbeyli.bgnmobipokemonassignment.core.service.OverlayService
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.FragmentPokemonDetailBinding
 import com.ferechamitbeyli.bgnmobipokemonassignment.features.detail.presentation.viewmodel.PokemonDetailViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -35,6 +35,8 @@ class PokemonDetailFragment : Fragment() {
 
     private val viewModel: PokemonDetailViewModel by viewModels()
     private val arguments: PokemonDetailFragmentArgs by navArgs()
+
+    private lateinit var pokemonDetail: PokemonDetail
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,7 +55,13 @@ class PokemonDetailFragment : Fragment() {
     }
 
     private fun setOnClickListeners() {
-
+        binding.buttonPokemonDetailOpenOverlay.setOnClickListener {
+            val service = Intent(requireActivity(), OverlayService::class.java)
+            service.putExtra("name", pokemonDetail.name)
+            service.putExtra("front_img", pokemonDetail.sprites?.front_default)
+            service.putExtra("back_img", pokemonDetail.sprites?.back_default)
+            requireActivity().startService(service)
+        }
     }
 
     private fun setUpUI() {
@@ -61,11 +69,6 @@ class PokemonDetailFragment : Fragment() {
             requireActivity() as AppCompatActivity,
             findNavController().currentDestination?.label.toString()
         )
-
-//        handleActionBarVisibility(
-//            requireActivity() as AppCompatActivity,
-//            findNavController().currentDestination?.label.toString()
-//        )
 
         requireActivity().findViewById<Toolbar>(R.id.toolbar_main).isVisible = true
 
@@ -86,6 +89,7 @@ class PokemonDetailFragment : Fragment() {
                             result.data?.let { pokemon ->
                                 handleViewVisibilities(false)
                                 populateViews(pokemon)
+                                pokemonDetail = pokemon
                             }
                         }
                         is State.Error -> {
