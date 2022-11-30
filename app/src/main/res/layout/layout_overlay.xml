@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView_layoutOverlay_pokemonFront"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginTop="4dp"
         android:contentDescription="@string/contentDescription_pokemon_image"
         android:src="@drawable/ic_warning"
@@ -20,8 +20,8 @@
 
     <ImageView
         android:id="@+id/imageView_layoutOverlay_pokemonBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginTop="4dp"
         android:contentDescription="@string/contentDescription_pokemon_image"
         android:src="@drawable/ic_warning"

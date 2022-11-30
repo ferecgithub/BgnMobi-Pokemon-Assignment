@@ -8,11 +8,9 @@ import android.os.Build
 import android.os.IBinder
 import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.View
 import android.view.WindowManager
 import coil.load
 import com.ferechamitbeyli.bgnmobipokemonassignment.R
-import com.ferechamitbeyli.bgnmobipokemonassignment.core.data.model.pokemon_detail.PokemonDetail
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.LayoutOverlayBinding
 
 /**
@@ -32,12 +30,14 @@ class OverlayService : Service() {
             crossfade(true)
             crossfade(1000)
             error(R.drawable.ic_warning)
+            allowHardware(false)
         }
 
         bindingOverlayWindow.imageViewLayoutOverlayPokemonBack.load(intent?.getStringExtra("back_img")) {
             crossfade(true)
             crossfade(1000)
             error(R.drawable.ic_warning)
+            allowHardware(false)
         }
 
         bindingOverlayWindow.textViewLayoutOverlayPokemonName.text = intent?.getStringExtra("name")
