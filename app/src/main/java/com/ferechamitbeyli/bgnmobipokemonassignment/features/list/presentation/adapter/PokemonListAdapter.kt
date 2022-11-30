@@ -3,10 +3,13 @@ package com.ferechamitbeyli.bgnmobipokemonassignment.features.list.presentation.
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
+import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.data.model.pokemon_list.PokemonListItem
+import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.LayoutPaginationErrorBinding
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.LayoutPokemonListItemBinding
 
 /**

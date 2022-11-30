@@ -9,6 +9,7 @@ import com.ferechamitbeyli.bgnmobipokemonassignment.core.data.repository.pokemon
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.datasource.pokemon.abstraction.PokemonRemoteDataSource
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.dto.pokemon_list.PokemonListItemDto
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.service.pokemon.PokemonService
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 

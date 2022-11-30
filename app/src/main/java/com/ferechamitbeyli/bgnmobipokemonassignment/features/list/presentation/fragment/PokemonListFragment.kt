@@ -20,6 +20,7 @@ import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.util.State
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.FragmentOverlayPermissionBinding
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.FragmentPokemonListBinding
 import com.ferechamitbeyli.bgnmobipokemonassignment.features.list.presentation.adapter.PokemonListAdapter
+import com.ferechamitbeyli.bgnmobipokemonassignment.features.list.presentation.adapter.PokemonListLoadStateAdapter
 import com.ferechamitbeyli.bgnmobipokemonassignment.features.list.presentation.viewmodel.PokemonListViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -59,7 +60,10 @@ class PokemonListFragment : Fragment() {
 
     private fun setUpUI() {
         binding.recyclerViewPokemonList.apply {
-            adapter = pokemonListAdapter
+            adapter = pokemonListAdapter.withLoadStateHeaderAndFooter(
+                header = PokemonListLoadStateAdapter { pokemonListAdapter.retry() },
+                footer = PokemonListLoadStateAdapter { pokemonListAdapter.retry() }
+            )
             pokemonListAdapter.addLoadStateListener { loadState ->
                 binding.recyclerViewPokemonList.isVisible =
                     loadState.source.refresh is LoadState.NotLoading
@@ -67,7 +71,6 @@ class PokemonListFragment : Fragment() {
                     loadState.source.refresh is LoadState.Loading
                 binding.layoutPokemonListError.root.isVisible =
                     loadState.source.refresh is LoadState.Error
-                displayError(loadState)
             }
             layoutManager = LinearLayoutManager(requireContext())
             setHasFixedSize(true)
@@ -83,7 +86,6 @@ class PokemonListFragment : Fragment() {
                         is State.Success -> {
                             result.data?.let { pokemonPagingData ->
                                 pokemonListAdapter.submitData(pokemonPagingData)
-
                             }
                         }
                         // The loading and error states will be handled by own structures of Paging3
@@ -92,15 +94,6 @@ class PokemonListFragment : Fragment() {
                         }
                     }
                 }
-        }
-    }
-
-    private fun displayError(loadState: CombinedLoadStates) {
-        val errorState = loadState.source.append as? LoadState.Error
-            ?: loadState.source.prepend as? LoadState.Error
-
-        errorState?.let {
-            Snackbar.make(binding.root, "${it.error}", Snackbar.LENGTH_LONG).show()
         }
     }
 
