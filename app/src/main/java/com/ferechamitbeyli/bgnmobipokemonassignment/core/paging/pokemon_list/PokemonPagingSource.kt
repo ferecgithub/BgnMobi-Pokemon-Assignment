@@ -1,6 +1,5 @@
 package com.ferechamitbeyli.bgnmobipokemonassignment.core.paging.pokemon_list
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.data.mapper.pokemon_list.PokemonListItemMapper
@@ -9,7 +8,6 @@ import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.datasource.poke
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.util.NetworkConstants.POKEMON_LIST_LIMIT
 import retrofit2.HttpException
 import java.io.IOException
-import javax.inject.Inject
 
 private const val STARTING_PAGE_INDEX = 0
 

@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ferechamitbeyli.bgnmobipokemonassignment.R
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.helper.UIHelpers
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.helper.UIHelpers.handleActionBarVisibility
+import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.util.OnItemClickListener
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.util.State
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.FragmentOverlayPermissionBinding
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.FragmentPokemonListBinding
@@ -32,13 +33,13 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class PokemonListFragment : Fragment() {
+class PokemonListFragment : Fragment(), OnItemClickListener {
 
     private var _binding: FragmentPokemonListBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: PokemonListViewModel by viewModels()
-    private val pokemonListAdapter by lazy { PokemonListAdapter() }
+    private val pokemonListAdapter by lazy { PokemonListAdapter(this@PokemonListFragment) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -104,6 +105,10 @@ class PokemonListFragment : Fragment() {
                     }
                 }
         }
+    }
+
+    override fun <T> onItemClick(position: Int, model: T) {
+        TODO("Not yet implemented")
     }
 
 }

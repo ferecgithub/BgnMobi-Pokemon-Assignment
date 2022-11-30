@@ -8,6 +8,7 @@ import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.util.OnItemClickListener
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.data.model.pokemon_list.PokemonListItem
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.LayoutPaginationErrorBinding
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.LayoutPokemonListItemBinding
@@ -16,7 +17,9 @@ import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.LayoutPokemonLis
  * Created by Ferec Hamitbeyli on 30.11.2022.
  */
 
-class PokemonListAdapter : PagingDataAdapter<PokemonListItem, RecyclerView.ViewHolder>(differ) {
+class PokemonListAdapter(
+    private val onItemClickListener: OnItemClickListener
+) : PagingDataAdapter<PokemonListItem, RecyclerView.ViewHolder>(differ) {
 
     companion object {
         private val differ = object : DiffUtil.ItemCallback<PokemonListItem>() {
@@ -35,6 +38,19 @@ class PokemonListAdapter : PagingDataAdapter<PokemonListItem, RecyclerView.ViewH
 
     inner class PokemonListViewHolder(private val binding: LayoutPokemonListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnClickListener {
+                val position = bindingAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val item = getItem(position)
+                    item?.let {
+                        onItemClickListener.onItemClick(position, item)
+                    }
+                }
+            }
+        }
+
         fun bind(item: PokemonListItem?) {
             binding.textViewLayoutPokemonListItemName.text = item?.name
         }
