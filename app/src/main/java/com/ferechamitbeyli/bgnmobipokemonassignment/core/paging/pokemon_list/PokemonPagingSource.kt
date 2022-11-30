@@ -9,6 +9,8 @@ import com.ferechamitbeyli.bgnmobipokemonassignment.core.data.repository.pokemon
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.datasource.pokemon.abstraction.PokemonRemoteDataSource
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.dto.pokemon_list.PokemonListItemDto
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.service.pokemon.PokemonService
+import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.util.NetworkConstants
+import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.util.NetworkConstants.POKEMON_LIST_LIMIT
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
@@ -36,8 +38,8 @@ class PokemonPagingSource @Inject constructor(
             val data = response.body()?.results?.let { pokemonListItemMapper.mapModelList(it) } as List<PokemonListItem>
             LoadResult.Page(
                 data = data,
-                prevKey = if (page == STARTING_PAGE_INDEX) null else page - 1,
-                nextKey = if (data.isEmpty()) null else page + 1
+                prevKey = if (page == STARTING_PAGE_INDEX) null else page.minus(1),
+                nextKey = if (data.isEmpty()) null else page.plus(1)
             )
         } catch (exception: Exception) {
             LoadResult.Error(exception)
