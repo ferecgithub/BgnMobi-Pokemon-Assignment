@@ -17,4 +17,6 @@
     <string name="pokemon_height">Pokemon Yüksekliği: %1$s m</string>
     <string name="pokemon_weight">Pokemon Ağırlığı: %1$s kg</string>
     <string name="contentDescription_pokemon_image">Pokemon Resmi</string>
+    <string name="close_window">Pencereyi Kapat</string>
+    <string name="warningIcon">Uyarı Simgesi</string>
 </resources>
