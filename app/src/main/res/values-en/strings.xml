@@ -6,10 +6,15 @@
     <string name="safeApiCall_unknownError">An unknown error occurred.</string>
     <string name="overlayPermissionWarning">This permission is required.</string>
     <string name="overlayPermissionGrantedMessage">Now you can pick your favorite Pokemon!</string>
-    <string name="give_me_overlay_permission">Give Me Overlay Permission!</string>
+    <string name="giveMeOverlayPermission">Give Me Overlay Permission!</string>
     <string name="noInternetConnectionWarning">No internet connection.</string>
     <string name="tryAgain">Try Again</string>
-    <string name="close_application">Close Application</string>
+    <string name="closeApplication">Close Application</string>
     <string name="menu_open">Open Menu</string>
     <string name="menu_close">Close Menu</string>
+    <string name="pokemon_name">Pokemon Name: %1$s</string>
+    <string name="pokemon_height">Pokemon Height: %1$s m</string>
+    <string name="pokemon_weight">Pokemon Weight: %1$s kg</string>
+    <string name="showInOverlay">Show %1$s In Overlay</string>
+    <string name="contentDescription_pokemon_image">Pokemon Image</string>
 </resources>

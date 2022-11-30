@@ -3,6 +3,6 @@
 
     <item
         android:id="@+id/menuItem_closeApplication"
-        android:title="@string/close_application" />
+        android:title="@string/closeApplication" />
 
 </menu>

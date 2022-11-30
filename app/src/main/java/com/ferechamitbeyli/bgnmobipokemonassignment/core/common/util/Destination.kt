@@ -5,7 +5,7 @@ package com.ferechamitbeyli.bgnmobipokemonassignment.core.common.util
  */
 
 enum class Destination(val label: String) {
-    OVERLAY_PERMISSION("fragment_overlay_permission"),
-    POKEMON_LIST("fragment_pokemon_list"),
-    POKEMON_DETAIL("fragment_pokemon_detail")
+    OVERLAY_PERMISSION("Overlay Permission"),
+    POKEMON_LIST("Pokemons"),
+    POKEMON_DETAIL("Pokemon Details")
 }

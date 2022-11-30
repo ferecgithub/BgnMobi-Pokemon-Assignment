@@ -5,14 +5,17 @@ import com.ferechamitbeyli.bgnmobipokemonassignment.core.data.model.pokemon_deta
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.dto.pokemon_detail.PokemonDetailDto
 import javax.inject.Inject
 
-class PokemonDetailMapper @Inject constructor() :
+class PokemonDetailMapper @Inject constructor(
+    private val spritesMapper: SpritesMapper
+) :
     RemoteModelMapper<PokemonDetailDto, PokemonDetail> {
     override fun mapFromModel(model: PokemonDetailDto): PokemonDetail {
         return PokemonDetail(
             height = model.height,
             id = model.id,
             name = model.name,
-            weight = model.weight
+            weight = model.weight,
+            sprites = model.sprites?.let { spritesMapper.mapFromModel(it) }
         )
     }
 
@@ -21,7 +24,8 @@ class PokemonDetailMapper @Inject constructor() :
             height = type.height,
             id = type.id,
             name = type.name,
-            weight = type.weight
+            weight = type.weight,
+            sprites = type.sprites?.let { spritesMapper.mapToModel(it) }
         )
     }
 }

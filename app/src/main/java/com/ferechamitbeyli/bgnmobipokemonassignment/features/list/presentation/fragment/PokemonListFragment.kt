@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import android.widget.Toast.makeText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -21,6 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ferechamitbeyli.bgnmobipokemonassignment.R
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.helper.UIHelpers
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.helper.UIHelpers.handleActionBarVisibility
+import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.helper.UIHelpers.setCurrentLabelOntoActionBar
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.util.OnItemClickListener
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.util.State
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.data.model.pokemon_list.PokemonListItem
@@ -66,10 +68,17 @@ class PokemonListFragment : Fragment(), OnItemClickListener<PokemonListItem> {
     }
 
     private fun setUpUI() {
-        handleActionBarVisibility(
+        setCurrentLabelOntoActionBar(
             requireActivity() as AppCompatActivity,
             findNavController().currentDestination?.label.toString()
         )
+
+        requireActivity().findViewById<Toolbar>(R.id.toolbar_main).isVisible = true
+
+//        handleActionBarVisibility(
+//            requireActivity() as AppCompatActivity,
+//            findNavController().currentDestination?.label.toString()
+//        )
 
         binding.recyclerViewPokemonList.apply {
             adapter = pokemonListAdapter.withLoadStateHeaderAndFooter(
@@ -110,6 +119,17 @@ class PokemonListFragment : Fragment(), OnItemClickListener<PokemonListItem> {
     }
 
     override fun onItemClick(position: Int, model: PokemonListItem) {
-        makeText(requireContext(), model.name, Toast.LENGTH_LONG).show()
+        if (model.name.isNotBlank()) {
+            navigateToPokemonDetailFragment(name = model.name)
+        }
+
+    }
+
+    private fun navigateToPokemonDetailFragment(name: String) {
+        if (findNavController().currentDestination?.id == R.id.pokemonListFragment) {
+            val action = PokemonListFragmentDirections
+                .actionPokemonListFragmentToPokemonDetailFragment(name = name)
+            findNavController().navigate(action)
+        }
     }
 }

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.*
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,8 +19,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
-    private lateinit var drawerToggle: ActionBarDrawerToggle
+//    private lateinit var drawerToggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,15 +33,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupDrawerMenu() {
-        drawerToggle = ActionBarDrawerToggle(
-            this,
-            binding.drawerLayoutMain,
-            R.string.menu_open,
-            R.string.menu_close
-        )
-        binding.drawerLayoutMain.addDrawerListener(drawerToggle)
-        drawerToggle.syncState()
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.navigationViewMain.setNavigationItemSelectedListener {
@@ -53,10 +46,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (drawerToggle.onOptionsItemSelected(item)) {
-            return true
-        }
-        return super.onOptionsItemSelected(item)
+        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 
     private fun setupNavigationComponents() {
@@ -64,5 +54,8 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView_main)
                     as NavHostFragment
         navController = navHostFragment.navController
+        appBarConfiguration = AppBarConfiguration(navController.graph, binding.drawerLayoutMain)
+
+        binding.toolbarMain.setupWithNavController(navController, appBarConfiguration)
     }
 }

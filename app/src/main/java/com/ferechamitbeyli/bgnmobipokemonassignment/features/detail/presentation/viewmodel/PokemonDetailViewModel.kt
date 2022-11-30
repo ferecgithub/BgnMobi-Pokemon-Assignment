@@ -23,11 +23,11 @@ class PokemonDetailViewModel @Inject constructor(
     private val fetchPokemonByNameUseCase: FetchPokemonByNameUseCase
 ) : ViewModel() {
 
-    private val mutablePokemon: MutableStateFlow<State<Resource<PokemonDetail>>> =
+    private val mutablePokemon: MutableStateFlow<State<PokemonDetail>> =
         MutableStateFlow(State.Idle())
     val pokemon = mutablePokemon.asStateFlow()
 
-    private fun fetchPokemonByName(name: String) {
+    fun fetchPokemonByName(name: String) {
         viewModelScope.launch {
             fetchPokemonByNameUseCase(name = name).collect { pokemonResult ->
                 when (pokemonResult) {
@@ -38,7 +38,7 @@ class PokemonDetailViewModel @Inject constructor(
                         mutablePokemon.update { State.Loading() }
                     }
                     is Resource.Success -> {
-                        mutablePokemon.update { State.Success(pokemonResult) }
+                        mutablePokemon.update { State.Success(pokemonResult.data) }
                     }
                 }
             }
