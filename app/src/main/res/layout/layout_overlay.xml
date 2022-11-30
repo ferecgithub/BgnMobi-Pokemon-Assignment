@@ -13,7 +13,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="4dp"
         android:contentDescription="@string/contentDescription_pokemon_image"
-        android:src="@drawable/ic_warning"
+        tools:src="@drawable/ic_warning"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView_layoutOverlay_pokemonBack"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +24,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="4dp"
         android:contentDescription="@string/contentDescription_pokemon_image"
-        android:src="@drawable/ic_warning"
+        tools:src="@drawable/ic_warning"
         app:layout_constraintEnd_toStartOf="@+id/imageView_layoutOverlay_pokemonFront"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

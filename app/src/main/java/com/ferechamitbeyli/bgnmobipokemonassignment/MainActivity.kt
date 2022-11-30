@@ -2,6 +2,8 @@ package com.ferechamitbeyli.bgnmobipokemonassignment
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.ViewGroup
+import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         setupNavigationComponents()
         setupDrawerMenu()
 

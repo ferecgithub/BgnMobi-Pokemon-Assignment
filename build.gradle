@@ -14,6 +14,8 @@ buildscript {
         classpath(AppClasspath.kotlin_gradle_plugin) // AppClasspath.kotlin_gradle_plugin
         classpath(AppClasspath.navigation_safe_args_gradle_plugin)
         classpath(AppClasspath.hilt_android_gradle_plugin)
+        classpath(AppClasspath.google_services)
+        classpath(AppClasspath.firebase_crashlytics_gradle)
     }
 
 }
