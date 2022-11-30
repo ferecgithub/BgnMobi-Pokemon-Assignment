@@ -12,16 +12,15 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class FirebasePushNotificationService : FirebaseMessagingService() {
+class FirebasePushNotificationService @Inject constructor(
+    private val notificationManager: NotificationManager
+) : FirebaseMessagingService() {
 
     companion object {
         const val PUSH_NOTIFICATION_CHANNEL_ID = "pokemon_push_channel_id"
         const val PUSH_NOTIFICATION_CHANNEL_NAME = "pokemon_push_channel"
         const val PUSH_NOTIFICATION_ID = 1
     }
-
-    @Inject
-    lateinit var notificationManager: NotificationManager
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         val title = remoteMessage.notification?.title
