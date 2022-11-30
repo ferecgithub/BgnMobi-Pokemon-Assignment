@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import android.widget.Toast.makeText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -109,6 +110,6 @@ class PokemonListFragment : Fragment(), OnItemClickListener<PokemonListItem> {
     }
 
     override fun onItemClick(position: Int, model: PokemonListItem) {
-        TODO("Not yet implemented")
+        makeText(requireContext(), model.name, Toast.LENGTH_LONG).show()
     }
 }
