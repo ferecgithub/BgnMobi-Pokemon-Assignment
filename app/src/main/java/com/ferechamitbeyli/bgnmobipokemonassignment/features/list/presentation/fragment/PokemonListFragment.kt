@@ -7,15 +7,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast.makeText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ferechamitbeyli.bgnmobipokemonassignment.R
+import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.helper.UIHelpers
+import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.helper.UIHelpers.handleActionBarVisibility
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.util.State
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.FragmentOverlayPermissionBinding
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.FragmentPokemonListBinding
@@ -59,6 +63,11 @@ class PokemonListFragment : Fragment() {
     }
 
     private fun setUpUI() {
+        handleActionBarVisibility(
+            requireActivity() as AppCompatActivity,
+            findNavController().currentDestination?.label.toString()
+        )
+
         binding.recyclerViewPokemonList.apply {
             adapter = pokemonListAdapter.withLoadStateHeaderAndFooter(
                 header = PokemonListLoadStateAdapter { pokemonListAdapter.retry() },

@@ -25,8 +25,8 @@ interface PokemonService : BaseService {
 
     @GET(POKEMON_LIST)
     suspend fun getPokemonList(
-        @Query("offset") offset: Int = POKEMON_LIST_OFFSET,
-        @Query("limit") limit: Int = POKEMON_LIST_LIMIT
+        @Query("limit") limit: Int,
+        @Query("offset") offset: Int
     ): Response<PokemonListDto>
 
     @GET("$POKEMON_LIST/{id}")

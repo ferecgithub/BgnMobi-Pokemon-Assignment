@@ -14,7 +14,7 @@ class PokemonListMapper @Inject constructor(
             count = model.count,
             next = model.next,
             previous = model.previous,
-            results = pokemonListItemMapper.mapModelList(model.results)
+            results = model.results?.let { pokemonListItemMapper.mapModelList(it) }
         )
     }
 
@@ -23,7 +23,7 @@ class PokemonListMapper @Inject constructor(
             count = type.count,
             next = type.next,
             previous = type.previous,
-            results = pokemonListItemMapper.mapTypeList(type.results)
+            results = type.results?.let { pokemonListItemMapper.mapTypeList(it) }
         )
     }
 }

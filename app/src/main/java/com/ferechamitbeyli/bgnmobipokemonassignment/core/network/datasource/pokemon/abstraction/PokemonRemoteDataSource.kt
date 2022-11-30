@@ -13,8 +13,8 @@ import retrofit2.Response
  */
 interface PokemonRemoteDataSource {
     suspend fun getPokemonList(
-        offset: Int = NetworkConstants.POKEMON_LIST_OFFSET,
-        limit: Int = NetworkConstants.POKEMON_LIST_LIMIT
+        limit: Int,
+        offset: Int
     ): Response<PokemonListDto>
     suspend fun getPokemonById(id: Int): Response<PokemonDetailDto>
     suspend fun getPokemonByName(name: String): Response<PokemonDetailDto>

@@ -5,15 +5,15 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ferechamitbeyli.bgnmobipokemonassignment.R
+import com.ferechamitbeyli.bgnmobipokemonassignment.core.common.helper.UIHelpers.handleActionBarVisibility
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.FragmentOverlayPermissionBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -36,8 +36,12 @@ class OverlayPermissionFragment : Fragment() {
 
         checkIfHasOverlayPermission()
 
-        setOnClickListeners()
+        handleActionBarVisibility(
+            requireActivity() as AppCompatActivity,
+            findNavController().currentDestination?.label.toString()
+        )
 
+        setOnClickListeners()
     }
 
     private fun setOnClickListeners() {
@@ -47,6 +51,14 @@ class OverlayPermissionFragment : Fragment() {
             }
         }
     }
+
+    /*
+    private fun hideActionBar() {
+        Log.d("CURENT_DEST", findNavController().currentDestination?.label.toString())
+        //(requireActivity() as AppCompatActivity).supportActionBar?.hide()
+    }
+
+     */
 
     private val overlayPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {

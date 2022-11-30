@@ -10,4 +10,7 @@
     <string name="give_me_overlay_permission">Uygulamamın üstte kalmasına izin ver!</string>
     <string name="noInternetConnectionWarning">İnternet bağlantısı bulunamadı.</string>
     <string name="tryAgain">Yeniden Dene</string>
+    <string name="close_application">Uygulamayı Kapat</string>
+    <string name="menu_open">Menüyü Aç</string>
+    <string name="menu_close">Menüyü Kapat</string>
 </resources>

@@ -6,6 +6,7 @@ import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.dto.pokemon_det
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.dto.pokemon_list.PokemonListDto
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.service.pokemon.PokemonService
 import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.util.NetworkConstants
+import com.ferechamitbeyli.bgnmobipokemonassignment.core.network.util.NetworkConstants.POKEMON_LIST_LIMIT
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -18,10 +19,10 @@ class PokemonRemoteDataSourceImpl @Inject constructor(
     private val pokemonService: PokemonService
 ) : PokemonRemoteDataSource {
     override suspend fun getPokemonList(
-        offset: Int,
-        limit: Int
+        limit: Int,
+        offset: Int
     ): Response<PokemonListDto> {
-        return pokemonService.getPokemonList()
+        return pokemonService.getPokemonList(limit = limit, offset = offset)
     }
 
     override suspend fun getPokemonById(id: Int): Response<PokemonDetailDto> =
