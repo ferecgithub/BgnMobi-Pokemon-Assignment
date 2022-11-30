@@ -6,12 +6,15 @@
     <string name="safeApiCall_unknownError">Bilinmeyen bir hata oluştu.</string>
     <string name="overlayPermissionWarning">Uygulamayı kullanabilmeniz için bu izni vermeniz gerekiyor.</string>
     <string name="overlayPermissionGrantedMessage">Favori Pokemonunu seçmeye başlayabilirsin!</string>
-    <string name="give_me_overlay_permission">Uygulamamın üstte kalmasına izin ver!</string>
+    <string name="giveMeOverlayPermission">Uygulamamın üstte kalmasına izin ver!</string>
+    <string name="showInOverlay">%1$s Pencerede Göster</string>
     <string name="noInternetConnectionWarning">İnternet bağlantısı bulunamadı.</string>
     <string name="tryAgain">Yeniden Dene</string>
-    <string name="close_application">Uygulamayı Kapat</string>
+    <string name="closeApplication">Uygulamayı Kapat</string>
     <string name="menu_open">Menüyü Aç</string>
     <string name="menu_close">Menüyü Kapat</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pokemon_name">Pokemon Adı: %1$s</string>
+    <string name="pokemon_height">Pokemon Yüksekliği: %1$s m</string>
+    <string name="pokemon_weight">Pokemon Ağırlığı: %1$s kg</string>
+    <string name="contentDescription_pokemon_image">Pokemon Resmi</string>
 </resources>

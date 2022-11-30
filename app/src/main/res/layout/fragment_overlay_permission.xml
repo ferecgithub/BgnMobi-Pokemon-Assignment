@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:textColor="@color/black"
-        android:text="@string/give_me_overlay_permission"
+        android:text="@string/giveMeOverlayPermission"
         app:backgroundTint="@color/colorSilver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

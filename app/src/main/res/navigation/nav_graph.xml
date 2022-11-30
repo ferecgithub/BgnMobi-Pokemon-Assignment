@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/overlayPermissionFragment"
         android:name="com.ferechamitbeyli.bgnmobipokemonassignment.features.list.presentation.fragment.OverlayPermissionFragment"
-        android:label="fragment_overlay_permission"
+        android:label="Overlay Permission"
         tools:layout="@layout/fragment_overlay_permission" >
         <action
             android:id="@+id/action_overlayPermissionFragment_to_pokemonListFragment"
@@ -19,7 +19,7 @@
     <fragment
         android:id="@+id/pokemonListFragment"
         android:name="com.ferechamitbeyli.bgnmobipokemonassignment.features.list.presentation.fragment.PokemonListFragment"
-        android:label="fragment_pokemon_list"
+        android:label="Pokemons"
         tools:layout="@layout/fragment_pokemon_list" >
         <action
             android:id="@+id/action_pokemonListFragment_to_pokemonDetailFragment"
@@ -28,6 +28,11 @@
     <fragment
         android:id="@+id/pokemonDetailFragment"
         android:name="com.ferechamitbeyli.bgnmobipokemonassignment.features.detail.presentation.fragment.PokemonDetailFragment"
-        android:label="fragment_pokemon_detail"
-        tools:layout="@layout/fragment_pokemon_detail" />
+        android:label="Pokemon Details"
+        tools:layout="@layout/fragment_pokemon_detail" >
+        <argument
+            android:name="name"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 </navigation>

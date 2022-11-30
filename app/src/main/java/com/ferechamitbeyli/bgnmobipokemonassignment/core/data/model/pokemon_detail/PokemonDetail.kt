@@ -4,5 +4,6 @@ data class PokemonDetail(
     val height: Int?,
     val id: Int?,
     val name: String?,
-    val weight: Int?
+    val weight: Int?,
+    val sprites: Sprites?
 )

@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ferechamitbeyli.bgnmobipokemonassignment.R
@@ -36,10 +38,12 @@ class OverlayPermissionFragment : Fragment() {
 
         checkIfHasOverlayPermission()
 
-        handleActionBarVisibility(
-            requireActivity() as AppCompatActivity,
-            findNavController().currentDestination?.label.toString()
-        )
+//        handleActionBarVisibility(
+//            requireActivity() as AppCompatActivity,
+//            findNavController().currentDestination?.label.toString()
+//        )
+
+        requireActivity().findViewById<Toolbar>(R.id.toolbar_main).isVisible = false
 
         setOnClickListeners()
     }
