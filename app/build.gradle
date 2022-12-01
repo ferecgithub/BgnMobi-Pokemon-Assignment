@@ -119,7 +119,10 @@ dependencies {
     // Test Suites
     testImplementation TestSuites.google_truth_testImpl
     testImplementation TestSuites.arch_core_testing_bothTests
-
+    testImplementation TestSuites.arch_core_testing_bothTests
+    testImplementation TestSuites.mockk_bothTests
+    testImplementation TestSuites.turbine_testImpl
+    testImplementation Coroutines.kotlinx_coroutine_test
 
     androidTestImplementation TestSuites.arch_core_testing_bothTests
     androidTestImplementation TestSuites.test_ext_junit_androidTestImpl

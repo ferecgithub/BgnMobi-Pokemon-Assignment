@@ -38,6 +38,5 @@ class PokemonListViewModel @Inject constructor(
                     mutablePokemonList.update { State.Success(pokemonListResult) }
                 }
         }
-
     }
 }
