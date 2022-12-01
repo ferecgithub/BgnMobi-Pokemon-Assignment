@@ -24,8 +24,8 @@ A technical challenge that requires using the modern Android development tools
 10) View binding should be used.   **🗸**
 11) Use and integration of Firebase libraries is required (crashlytics, push notification).    **🗸**
 12) Where necessary (if the application language is Kotlin), it is a plus to use Coroutines.    **🗸**
-13) App modularization would be considered a big plus. (The package structure is prepared having modularization in mind. I didn't modularize to finish the assignment ASAP.)
-14) Writing a unit test will be considered a big plus. (This will be done next.)
+13) Writing a unit test will be considered a big plus. **🗸**
+14) App modularization would be considered a big plus. (The package structure is prepared having modularization in mind. I didn't modularize to finish the assignment ASAP.)
 
 
 
