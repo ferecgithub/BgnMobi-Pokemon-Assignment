@@ -2,14 +2,12 @@ package com.ferechamitbeyli.bgnmobipokemonassignment
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.ViewGroup
-import android.widget.Button
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.*
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.onNavDestinationSelected
+import androidx.navigation.ui.setupWithNavController
 import com.ferechamitbeyli.bgnmobipokemonassignment.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
